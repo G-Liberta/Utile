@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
 import 'common/common_widgets.dart';
 
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+
+class ServiceScreen extends StatelessWidget {
+  const ServiceScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
       extendBodyBehindAppBar: true,
-      appBar: CustomAppBar(),
+      appBar: const CustomAppBar(),
       body: BackgroundContainer(
-        child: Center(
+        child: const Center(
           child: Text(
-            'Login Page',
+            'Service Page',
             style: TextStyle(color: Colors.white, fontSize: 24),
           ),
         ),
