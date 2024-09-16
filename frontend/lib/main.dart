@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'login_page.dart';
-import 'service_page.dart';
 import 'common/common_widgets.dart'; // Import the common_widgets.dart
 
 void main() {
