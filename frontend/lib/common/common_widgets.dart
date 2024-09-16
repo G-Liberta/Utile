@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import '../main.dart';  // Import the file where MyHomePage is defined
 import '../login_page.dart';  // Import the file where LoginScreen is defined
 import '../service_page.dart';  // Import the file where ServiceScreen is defined
+import '../contact_page.dart';  // Import the Contact page
+
 
 // Define a common AppBar
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -39,6 +41,16 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             },
             child: Text("Services", style: commonStyle),
           ),
+          TextButton(
+            onPressed: () {
+               Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => const ContactPage()),
+               );
+             },
+             child: Text("Contact", style: commonStyle),
+          ),
+
           TextButton(
             onPressed: () {
               Navigator.pushAndRemoveUntil(
