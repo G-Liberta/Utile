@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'common/common_widgets.dart';
+import 'signup_page.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -12,7 +13,7 @@ class LoginScreen extends StatelessWidget {
       body: BackgroundContainer(
         child: Center(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20.0), // Adds some padding around the fields
+            padding: const EdgeInsets.symmetric(horizontal: 20.0), // Adds padding around the fields
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -26,7 +27,7 @@ class LoginScreen extends StatelessWidget {
                       fillColor: Colors.white24, // Adjust color for compatibility
                       border: OutlineInputBorder(),
                     ),
-                    style: TextStyle(color: Colors.white), // Adjusts input text color to white
+                    style: TextStyle(color: Colors.white), // Input text color set to white
                   ),
                 ),
                 const SizedBox(height: 20), // Space between fields
@@ -52,13 +53,30 @@ class LoginScreen extends StatelessWidget {
                   style: OutlinedButton.styleFrom(
                     side: const BorderSide(color: Colors.white), // Border color set to white
                     shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12),
-                      ),
+                      borderRadius: BorderRadius.circular(12),
+                    ),
                     padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 15),
                   ),
                   child: const Text(
                     'Login',
                     style: TextStyle(fontSize: 18, color: Colors.white), // Text color set to white
+                  ),
+                ),
+                const SizedBox(height: 10), // Space between login and signup buttons
+                // Sign Up Button
+                TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const SignUpPage()),
+                    );
+                  },
+                  child: const Text(
+                    'Sign Up',
+                    style: TextStyle(
+                      color: Colors.white,
+                      decoration: TextDecoration.underline,
+                    ),
                   ),
                 ),
               ],
