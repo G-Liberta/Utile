@@ -66,7 +66,7 @@ class LoginScreen extends StatelessWidget {
                 // Sign Up Button
                 TextButton(
                   onPressed: () {
-                    Navigator.push(
+                    Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(builder: (context) => const SignUpPage()),
                     );

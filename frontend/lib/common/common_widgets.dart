@@ -34,9 +34,9 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           ),
           TextButton(
             onPressed: () {
-              Navigator.pushAndRemoveUntil(
+              Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(builder: (context) => const ServiceScreen()),ModalRoute.withName('/'),
+                MaterialPageRoute(builder: (context) => const ServiceScreen()),
               );
             },
             child: Text("Services", style: commonStyle),
@@ -53,9 +53,9 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
 
           TextButton(
             onPressed: () {
-              Navigator.pushAndRemoveUntil(
+              Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(builder: (context) => const LoginScreen()),ModalRoute.withName('/'),
+                MaterialPageRoute(builder: (context) => const LoginScreen()),
               );
             },
             child: Text("Login", style: commonStyle),
@@ -89,6 +89,54 @@ class BackgroundContainer extends StatelessWidget {
         ),
       ),
       child: child,
+    );
+  }
+}
+
+
+class Footer extends StatelessWidget {
+  const Footer({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: MediaQuery.of(context).size.width, // Ensure full-screen width
+      color: Colors.black.withOpacity(0.8), // Adjust background color for contrast
+      padding: const EdgeInsets.symmetric(vertical: 3, horizontal: 8), // Adjust padding
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween, // Push elements to opposite sides
+        children: [
+          // Left: Social profile buttons
+          Row(
+            children: [
+              IconButton(
+                icon: const Icon(Icons.email, color: Colors.white),
+                onPressed: () {
+                  // Add functionality for contacting via email
+                },
+              ),
+              IconButton(
+                icon: const Icon(Icons.facebook, color: Colors.white),
+                onPressed: () {
+                  // Add functionality for social media links
+                },
+              ),
+              IconButton(
+                icon: const Icon(Icons.linked_camera, color: Colors.white),
+                onPressed: () {
+                  // Add functionality for LinkedIn or other social networks
+                },
+              ),
+            ],
+          ),
+
+          // Right: Copyright text
+          const Text(
+            '© 2024 Utile App - All Rights Reserved',
+            style: TextStyle(color: Colors.white),
+          ),
+        ],
+      ),
     );
   }
 }

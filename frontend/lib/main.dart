@@ -31,18 +31,25 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
       extendBodyBehindAppBar: true,
       appBar: CustomAppBar(), // Use the custom AppBar
       body: BackgroundContainer( // Use the custom background
-        child: Center(
-          child: Text(
-            'Welcome to Utile',
-            style: TextStyle(color: Colors.white, fontSize: 41),
-          ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween, // Space content and footer
+          children: [
+            Expanded(
+              child: Center( // Keep the content centered
+                child: Text(
+                  'Welcome to Utile',
+                  style: TextStyle(color: Colors.white, fontSize: 41),
+                ),
+              ),
+            ),
+            Footer(), // Add the footer at the bottom
+          ],
         ),
       ),
     );
