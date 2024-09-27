@@ -11,77 +11,85 @@ class LoginScreen extends StatelessWidget {
       extendBodyBehindAppBar: true,
       appBar: const CustomAppBar(),
       body: BackgroundContainer(
-        child: Center(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20.0), // Adds padding around the fields
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(
-                  width: 330, // Set the width of the email field
-                  child: const TextField(
-                    decoration: InputDecoration(
-                      hintText: 'Email',
-                      hintStyle: TextStyle(color: Colors.white),
-                      filled: true,
-                      fillColor: Colors.white24, // Adjust color for compatibility
-                      border: OutlineInputBorder(),
-                    ),
-                    style: TextStyle(color: Colors.white), // Input text color set to white
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween, // Ensures footer stays at the bottom
+          children: [
+            Expanded( // Keeps the main content centered
+              child: Center(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const SizedBox(
+                        width: 330, 
+                        child: TextField(
+                          decoration: InputDecoration(
+                            hintText: 'Email',
+                            hintStyle: TextStyle(color: Colors.white),
+                            filled: true,
+                            fillColor: Colors.white24, 
+                            border: OutlineInputBorder(),
+                          ),
+                          style: TextStyle(color: Colors.white), 
+                        ),
+                      ),
+                      const SizedBox(height: 20), 
+                      const SizedBox (
+                        width: 330,
+                        child: TextField(
+                          obscureText: true,
+                          decoration: InputDecoration(
+                            hintText: 'Password',
+                            hintStyle: TextStyle(color: Colors.white),
+                            filled: true,
+                            fillColor: Colors.white24,
+                            border: OutlineInputBorder(),
+                          ),
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ),
+                      const SizedBox(height: 30),
+                      OutlinedButton(
+                        onPressed: () {
+                          // Handle login action
+                        },
+                        style: OutlinedButton.styleFrom(
+                          side: const BorderSide(color: Colors.white),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 15),
+                        ),
+                        child: const Text(
+                          'Login',
+                          style: TextStyle(fontSize: 18, color: Colors.white),
+                        ),
+                      ),
+                      const SizedBox(height: 10), // Space between login and signup buttons
+                      // Sign Up Button
+                      TextButton(
+                        onPressed: () {
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(builder: (context) => const SignUpPage()),
+                          );
+                        },
+                        child: const Text(
+                          'Sign Up',
+                          style: TextStyle(
+                            color: Colors.white,
+                            decoration: TextDecoration.underline,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
-                const SizedBox(height: 20), // Space between fields
-                Container(
-                  width: 330, // Set the width of the password field
-                  child: const TextField(
-                    obscureText: true,
-                    decoration: InputDecoration(
-                      hintText: 'Password',
-                      hintStyle: TextStyle(color: Colors.white),
-                      filled: true,
-                      fillColor: Colors.white24,
-                      border: OutlineInputBorder(),
-                    ),
-                    style: TextStyle(color: Colors.white),
-                  ),
-                ),
-                const SizedBox(height: 30), // Space before the login button
-                OutlinedButton(
-                  onPressed: () {
-                    // Handle login action
-                  },
-                  style: OutlinedButton.styleFrom(
-                    side: const BorderSide(color: Colors.white), // Border color set to white
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 15),
-                  ),
-                  child: const Text(
-                    'Login',
-                    style: TextStyle(fontSize: 18, color: Colors.white), // Text color set to white
-                  ),
-                ),
-                const SizedBox(height: 10), // Space between login and signup buttons
-                // Sign Up Button
-                TextButton(
-                  onPressed: () {
-                    Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(builder: (context) => const SignUpPage()),
-                    );
-                  },
-                  child: const Text(
-                    'Sign Up',
-                    style: TextStyle(
-                      color: Colors.white,
-                      decoration: TextDecoration.underline,
-                    ),
-                  ),
-                ),
-              ],
+              ),
             ),
-          ),
+            const Footer(),
+          ],
         ),
       ),
     );
